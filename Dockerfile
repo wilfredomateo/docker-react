@@ -8,6 +8,9 @@ RUN npm run build
 
 # Run phase
 FROM nginx
+
+# Map port for deployment instruction
+EXPOSE 80 
 COPY --from=builder /app/build /usr/share/nginx/html
 
 
