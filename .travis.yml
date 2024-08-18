@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t scubawill/docker-react -f Dockerfile.dev .
+
+script: # Run our test suite
+  - docker run -e CI=true scubawill/docker-react  npm run test -- --coverage
+    
